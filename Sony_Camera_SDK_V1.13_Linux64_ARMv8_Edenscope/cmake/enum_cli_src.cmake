@@ -7,7 +7,7 @@ set(__cli_srcs
     ${__cli_src_dir}/CameraDevice.cpp
     ${__cli_src_dir}/ConnectionInfo.cpp
     ${__cli_src_dir}/PropertyValueTable.cpp
-    ${__cli_src_dir}/RemoteCli.cpp
+    ${__cli_src_dir}/Edenscope_Capture_Image.cpp
     ${__cli_src_dir}/Text.cpp
     ${__cli_src_dir}/MessageDefine.cpp
     ${__cli_src_dir}/OpenCVWrapper.cpp

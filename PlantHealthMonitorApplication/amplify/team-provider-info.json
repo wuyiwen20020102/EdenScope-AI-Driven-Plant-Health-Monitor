@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-planthealthmonitorap-dev-93691-authRole",
+      "UnauthRoleArn": "arn:aws:iam::539247445988:role/amplify-planthealthmonitorap-dev-93691-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::539247445988:role/amplify-planthealthmonitorap-dev-93691-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-planthealthmonitorap-dev-93691-deployment",
+      "UnauthRoleName": "amplify-planthealthmonitorap-dev-93691-unauthRole",
+      "StackName": "amplify-planthealthmonitorap-dev-93691",
+      "StackId": "arn:aws:cloudformation:us-east-1:539247445988:stack/amplify-planthealthmonitorap-dev-93691/1bd8ceb0-9d76-11ef-8a38-0e2f94aefd89",
+      "AmplifyAppId": "d3beckyv9e0xp5"
+    },
+    "categories": {
+      "auth": {
+        "planthealthmonitorap4684157f": {}
+      },
+      "api": {
+        "planthealthmonitorap": {}
+      },
+      "storage": {
+        "image": {}
+      }
+    }
+  }
+}

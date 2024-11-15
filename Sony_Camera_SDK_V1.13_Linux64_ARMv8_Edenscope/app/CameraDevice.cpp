@@ -24,6 +24,7 @@ namespace fs = std::filesystem;
 #endif
 #include <fstream>
 #include <thread>
+#include <string>
 #include "CRSDK/CrDeviceProperty.h"
 #include "Text.h"
 #include "OpenCVWrapper.h"
@@ -109,7 +110,7 @@ CameraDevice::CameraDevice(std::int32_t no, SCRSDK::ICrCameraObjectInfo const* c
     , m_latestFirmwareUploadRate(0)
 {
     is_image_downloaded = false;
-
+    
     m_info = SDK::CreateCameraObjectInfo(
         camera_info->GetName(),
         camera_info->GetModel(),
@@ -336,8 +337,6 @@ void CameraDevice::s1_shooting() const
 
 void CameraDevice::af_shutter() const
 {
-    tout << "S1 shooting...\n";
-    tout << "Shutter Half Press down\n";
     SDK::CrDeviceProperty prop;
     prop.SetCode(SDK::CrDevicePropertyCode::CrDeviceProperty_S1);
     prop.SetCurrentValue(SDK::CrLockIndicator::CrLockIndicator_Locked);
@@ -345,12 +344,12 @@ void CameraDevice::af_shutter() const
     SDK::SetDeviceProperty(m_device_handle, &prop);
 
     // Wait, then send shutter down
-    std::this_thread::sleep_for(500ms);
+    std::this_thread::sleep_for(1s);
     tout << "Shutter down\n";
     SDK::SendCommand(m_device_handle, SDK::CrCommandId::CrCommandId_Release, SDK::CrCommandParam::CrCommandParam_Down);
 
     // Wait, then send shutter up
-    std::this_thread::sleep_for(35ms);
+    std::this_thread::sleep_for(1s);
     tout << "Shutter up\n";
     SDK::SendCommand(m_device_handle, SDK::CrCommandId::CrCommandId_Release, SDK::CrCommandParam::CrCommandParam_Up);
 
@@ -358,7 +357,7 @@ void CameraDevice::af_shutter() const
     std::this_thread::sleep_for(1s);
     tout << "Shutter Half Press up\n";
     prop.SetCurrentValue(SDK::CrLockIndicator::CrLockIndicator_Unlocked);
-    SDK::SetDeviceProperty(m_device_handle, &prop);
+    auto status = SDK::SetDeviceProperty(m_device_handle, &prop);
 }
 
 void CameraDevice::continuous_shooting()
@@ -1653,14 +1652,27 @@ bool CameraDevice::set_save_info() const
         tout << "Folder path is too long.\n";
         return false;
     }
+    
+    strncat(path, "/AmazonCloudS3Bucket", sizeof(path) - strlen(path) - 1);
+    
     auto save_status = SDK::SetSaveInfo(m_device_handle
         , path, (char*)"", ImageSaveAutoStartNo);
 #else
-    text path = fs::current_path().native();
+    char result[PATH_MAX];
+    ssize_t count = readlink("/proc/self/exe", result, PATH_MAX);
+    if (count == -1) {
+        tout << "Failed to get executable path.\n";
+        return false;
+    }
+    std::string exePath(result, count);
+    std::filesystem::path exeDir = std::filesystem::path(exePath).parent_path();
+    exeDir /= "AmazonCloudS3Bucket";
+    text path = exeDir.native();
     tout << path.data() << '\n';
-
+    text_char empty_string[] = TEXT("");
+    
     auto save_status = SDK::SetSaveInfo(m_device_handle
-        , const_cast<text_char*>(path.data()), TEXT(""), ImageSaveAutoStartNo);
+        , const_cast<text_char*>(path.data()), empty_string, ImageSaveAutoStartNo);
 #endif
     if (CR_FAILED(save_status)) {
         tout << "Failed to set save path.\n";
@@ -4827,7 +4839,6 @@ void CameraDevice::OnCompleteDownload(CrChar* filename, CrInt32u type )
     default:
         break;
     }
-
     is_image_downloaded = true;
 }
 
@@ -4962,6 +4973,7 @@ void CameraDevice::OnWarning(CrInt32u warning)
 
 void CameraDevice::OnWarningExt(CrInt32u warning, CrInt32 param1, CrInt32 param2, CrInt32 param3)
 {
+    /*
     tout << "<Receive>\n";
 #if defined(_WIN64)
     printf_s("warning: 0x%08X\n", warning);
@@ -4991,6 +5003,7 @@ void CameraDevice::OnWarningExt(CrInt32u warning, CrInt32 param1, CrInt32 param2
     tout << "                      0x00000001: CrWarningExt_OperationResultsParam_OK\n";
     tout << "                      0x00000002: CrWarningExt_OperationResultsParam_NG\n";
     tout << "                      etc.\n";
+    */
 }
 
 void CameraDevice::OnNotifyFTPTransferResult(CrInt32u notify, CrInt32u numOfSuccess, CrInt32u numOfFail)
@@ -9101,4 +9114,3 @@ void CameraDevice::set_debug_mode()
 
 }
 // namespace cli
-

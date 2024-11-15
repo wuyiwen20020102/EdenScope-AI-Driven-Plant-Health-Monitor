@@ -54,7 +54,7 @@ class CameraDevice : public SCRSDK::IDeviceCallback
 {
 public:
     std::atomic<bool> is_image_downloaded;
-
+    
     CameraDevice() = delete;
     CameraDevice(std::int32_t no, SCRSDK::ICrCameraObjectInfo const* camera_info);
     ~CameraDevice();

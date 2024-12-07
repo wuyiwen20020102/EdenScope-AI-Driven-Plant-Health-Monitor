@@ -1,0 +1,17 @@
+[Unit]
+Description=AWS IoT Capture Photo Listener Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=edenscope
+WorkingDirectory=/home/edenscope
+ExecStartPre=/bin/sh -c 'until getent hosts ap4q7pw1ovbow-ats.iot.us-east-1.amazonaws.com; do sleep 5; done'
+ExecStart=/home/edenscope/edenscope_trigger_camera_capture.sh
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

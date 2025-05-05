@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Plant Health Monitor Application"
+rootProject.name = "EdenHealth"
 include(":app")
  

@@ -1,13 +1,13 @@
 {
   "api": {
-    "planthealthmonitorap": {
+    "edenplanthealthapp": {
       "dependsOn": [
         {
           "attributes": [
             "UserPoolId"
           ],
           "category": "auth",
-          "resourceName": "planthealthmonitorap4684157f"
+          "resourceName": "edenplanthealthappa19c7c31"
         }
       ],
       "output": {
@@ -16,7 +16,7 @@
           "defaultAuthentication": {
             "authenticationType": "AMAZON_COGNITO_USER_POOLS",
             "userPoolConfig": {
-              "userPoolId": "authplanthealthmonitorap4684157f"
+              "userPoolId": "authedenplanthealthappa19c7c31"
             }
           }
         }
@@ -26,7 +26,7 @@
     }
   },
   "auth": {
-    "planthealthmonitorap4684157f": {
+    "edenplanthealthappa19c7c31": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -52,7 +52,7 @@
     }
   },
   "storage": {
-    "image": {
+    "EdenscopeUserImage": {
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "S3"

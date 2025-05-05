@@ -1,25 +1,23 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "planthealthmonitorap": {
+    "edenplanthealthapp": {
       "GraphQLAPIEndpointOutput": "string",
       "GraphQLAPIIdOutput": "string"
     }
   },
   "auth": {
-    "planthealthmonitorap4684157f": {
+    "edenplanthealthappa19c7c31": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
-      "HostedUIDomain": "string",
       "IdentityPoolId": "string",
       "IdentityPoolName": "string",
-      "OAuthMetadata": "string",
       "UserPoolArn": "string",
       "UserPoolId": "string",
       "UserPoolName": "string"
     }
   },
   "storage": {
-    "image": {
+    "EdenscopeUserImage": {
       "BucketName": "string",
       "Region": "string"
     }

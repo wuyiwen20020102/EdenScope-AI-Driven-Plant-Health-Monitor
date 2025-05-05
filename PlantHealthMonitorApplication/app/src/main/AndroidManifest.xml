@@ -3,10 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera.any" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    
+    <!-- Google Maps Location Permissions -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".AndroidGettingStartedApplication"
+        android:name=".PlantHealthMonitorApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,6 +27,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PlantHealthMonitorApplication"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAwVBPIhbIuegCLAYpTmUu5w9xT8NwBQ1w" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -30,17 +45,27 @@
             android:name="com.amplifyframework.auth.cognito.activities.HostedUIRedirectActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data
-                    android:scheme="plantmonitor"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="plantmonitor" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".AddNoteActivity"
-            android:label="Add Note"
-            android:theme="@style/Theme.Design.NoActionBar">
+        <activity android:name=".CameraActivity"
+            android:label="Camera"
+            android:theme="@style/Theme.PlantHealthMonitorApplication">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.planthealthmonitorapplication.MainActivity" />
+        </activity>
+        
+        <activity 
+            android:name=".ProcessedImageActivity"
+            android:exported="false"
+            android:label="Image Details"
+            android:theme="@style/Theme.PlantHealthMonitorApplication">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.planthealthmonitorapplication.MainActivity" />

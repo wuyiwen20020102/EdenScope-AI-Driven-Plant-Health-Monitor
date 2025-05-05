@@ -1,0 +1,19 @@
+[Unit]
+Description=EdenScope Automatic Image Processing Service
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/mnt/c/Users/wuyiw/OneDrive/Desktop/EdenScope AI-Driven Plant Health Monitoring Payload
+ExecStart=/bin/bash /mnt/c/Users/wuyiw/OneDrive/Desktop/EdenScope AI-Driven Plant Health Monitoring Payload/Shell_Script & System_Service/process_all_users_images.sh
+Restart=on-failure
+RestartSec=5
+StandardOutput=append:/var/log/edenscope/image_processing.log
+StandardError=append:/var/log/edenscope/image_processing.error.log
+
+# Schedule to run every 15 minutes
+OnCalendar=*:0/15
+
+[Install]
+WantedBy=multi-user.target

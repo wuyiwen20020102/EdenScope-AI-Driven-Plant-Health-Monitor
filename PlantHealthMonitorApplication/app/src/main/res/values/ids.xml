@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="permission_launcher_key" type="id" />
+    <item name="image_key_tag" type="id" />
+</resources>

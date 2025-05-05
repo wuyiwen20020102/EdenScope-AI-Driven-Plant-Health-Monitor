@@ -1,0 +1,92 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-edenplanthealthapp-dev-58d3e-authRole",
+      "UnauthRoleArn": "arn:aws:iam::054037126869:role/amplify-edenplanthealthapp-dev-58d3e-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::054037126869:role/amplify-edenplanthealthapp-dev-58d3e-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-edenplanthealthapp-dev-58d3e-deployment",
+      "UnauthRoleName": "amplify-edenplanthealthapp-dev-58d3e-unauthRole",
+      "StackName": "amplify-edenplanthealthapp-dev-58d3e",
+      "StackId": "arn:aws:cloudformation:us-east-1:054037126869:stack/amplify-edenplanthealthapp-dev-58d3e/f9d2b0d0-e107-11ef-9b6f-12578591e4e7",
+      "AmplifyAppId": "dkub4bttbwc2g"
+    }
+  },
+  "auth": {
+    "edenplanthealthappe9aecd67": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-edenplanthealthapp-dev-58d3e-deployment/amplify-cfn-templates/auth/edenplanthealthappe9aecd67-cloudformation-template.json",
+        "logicalId": "authedenplanthealthappe9aecd67"
+      },
+      "lastPushTimeStamp": "2025-02-02T02:03:23.534Z",
+      "output": {
+        "UserPoolId": "us-east-1_KgRVDpJhM",
+        "AppClientIDWeb": "5iu07bniln0tomembkl25pioq8",
+        "AppClientID": "68phrhuvs9g0oau7oqr1piopbv",
+        "HostedUIDomain": "edenplanthealthappe9aecd67-e9aecd67-dev",
+        "IdentityPoolId": "us-east-1:be5ce565-626d-4035-b45f-c1a41196846b",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:054037126869:userpool/us-east-1_KgRVDpJhM",
+        "IdentityPoolName": "edenplanthealthappe9aecd67_identitypool_e9aecd67__dev",
+        "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"edenscopeplanthealth://\"],\"LogoutURLs\":[\"edenscopeplanthealth://\"]}",
+        "UserPoolName": "edenplanthealthappe9aecd67_userpool_e9aecd67"
+      },
+      "lastPushDirHash": "J1ksn4tF5GtEh3MwiGUwM3nDZE0="
+    }
+  },
+  "api": {
+    "edenplanthealthapp": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "edenplanthealthappe9aecd67",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authedenplanthealthappe9aecd67"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "ihee3xadkvhcnourziwcu5juje",
+        "GraphQLAPIEndpointOutput": "https://tek3mf45djc6pdapuajp3b7344.appsync-api.us-east-1.amazonaws.com/graphql"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-edenplanthealthapp-dev-58d3e-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiedenplanthealthapp"
+      },
+      "lastPushTimeStamp": "2025-02-02T02:03:24.142Z",
+      "lastPushDirHash": "5eqzC8oxdJ3LenHBOaH0VQnKqIg="
+    }
+  }
+}

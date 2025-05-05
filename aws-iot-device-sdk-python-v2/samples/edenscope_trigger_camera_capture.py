@@ -17,7 +17,7 @@ from botocore.exceptions import NoCredentialsError, ClientError
 
 
 # Parameters - Replace these with your actual values
-ENDPOINT = "ap4q7pw1ovbow-ats.iot.us-east-1.amazonaws.com"            # Endpoint e.g., "your-endpoint-ats.iot.region.amazonaws.com"
+ENDPOINT = "a28tskmmd67e9b-ats.iot.us-east-1.amazonaws.com"            # Endpoint e.g., "your-endpoint-ats.iot.region.amazonaws.com"
 CLIENT_ID = "EdenscopeRaspberryPiCameraClient"
 PATH_TO_CERT = os.path.expanduser("~/certs/device.pem.crt")           # Path to your device certificate
 PATH_TO_KEY = os.path.expanduser("~/certs/private.pem.key")           # Path to your private key
@@ -86,7 +86,7 @@ def on_message_received(topic, payload, dup, qos, retain, **kwargs):
                 return
            
             # Upload the image to S3
-            bucket_name = 'edenscope-raspberrypi-bucket'
+            bucket_name = 'edenscope-raspberrypi-s3bucket'
             if upload_to_s3(new_image_path, bucket_name, new_filename):
                 print(f"Successfully uploaded {new_image_path} to S3 bucket {bucket_name}.")
             else:

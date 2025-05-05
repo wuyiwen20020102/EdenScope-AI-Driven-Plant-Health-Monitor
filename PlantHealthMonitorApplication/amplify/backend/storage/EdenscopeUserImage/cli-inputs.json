@@ -1,0 +1,13 @@
+{
+  "resourceName": "EdenscopeUserImage",
+  "policyUUID": "28b567a3",
+  "bucketName": "edenplanthealthappbucket",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "groupAccess": {}
+}

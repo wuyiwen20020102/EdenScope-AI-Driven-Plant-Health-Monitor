@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-edenplanthealthapp-dev-58d3e-authRole",
+      "UnauthRoleArn": "arn:aws:iam::054037126869:role/amplify-edenplanthealthapp-dev-58d3e-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::054037126869:role/amplify-edenplanthealthapp-dev-58d3e-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-edenplanthealthapp-dev-58d3e-deployment",
+      "UnauthRoleName": "amplify-edenplanthealthapp-dev-58d3e-unauthRole",
+      "StackName": "amplify-edenplanthealthapp-dev-58d3e",
+      "StackId": "arn:aws:cloudformation:us-east-1:054037126869:stack/amplify-edenplanthealthapp-dev-58d3e/f9d2b0d0-e107-11ef-9b6f-12578591e4e7",
+      "AmplifyAppId": "dkub4bttbwc2g"
+    },
+    "categories": {
+      "auth": {
+        "edenplanthealthappe9aecd67": {}
+      },
+      "api": {
+        "edenplanthealthapp": {}
+      }
+    }
+  }
+}

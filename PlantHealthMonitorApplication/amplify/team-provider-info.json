@@ -1,25 +1,25 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-planthealthmonitorap-dev-93691-authRole",
-      "UnauthRoleArn": "arn:aws:iam::539247445988:role/amplify-planthealthmonitorap-dev-93691-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::539247445988:role/amplify-planthealthmonitorap-dev-93691-authRole",
+      "AuthRoleName": "amplify-edenplanthealthapp-dev-58d3e-authRole",
+      "UnauthRoleArn": "arn:aws:iam::054037126869:role/amplify-edenplanthealthapp-dev-58d3e-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::054037126869:role/amplify-edenplanthealthapp-dev-58d3e-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-planthealthmonitorap-dev-93691-deployment",
-      "UnauthRoleName": "amplify-planthealthmonitorap-dev-93691-unauthRole",
-      "StackName": "amplify-planthealthmonitorap-dev-93691",
-      "StackId": "arn:aws:cloudformation:us-east-1:539247445988:stack/amplify-planthealthmonitorap-dev-93691/1bd8ceb0-9d76-11ef-8a38-0e2f94aefd89",
-      "AmplifyAppId": "d3beckyv9e0xp5"
+      "DeploymentBucketName": "amplify-edenplanthealthapp-dev-58d3e-deployment",
+      "UnauthRoleName": "amplify-edenplanthealthapp-dev-58d3e-unauthRole",
+      "StackName": "amplify-edenplanthealthapp-dev-58d3e",
+      "StackId": "arn:aws:cloudformation:us-east-1:054037126869:stack/amplify-edenplanthealthapp-dev-58d3e/f9d2b0d0-e107-11ef-9b6f-12578591e4e7",
+      "AmplifyAppId": "dkub4bttbwc2g"
     },
     "categories": {
       "auth": {
-        "planthealthmonitorap4684157f": {}
+        "edenplanthealthappa19c7c31": {}
       },
       "api": {
-        "planthealthmonitorap": {}
+        "edenplanthealthapp": {}
       },
       "storage": {
-        "image": {}
+        "EdenscopeUserImage": {}
       }
     }
   }

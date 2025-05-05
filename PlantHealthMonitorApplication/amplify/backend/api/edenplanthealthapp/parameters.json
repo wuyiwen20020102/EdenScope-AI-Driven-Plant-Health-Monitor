@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "edenplanthealthapp",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authedenplanthealthappa19c7c31",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
